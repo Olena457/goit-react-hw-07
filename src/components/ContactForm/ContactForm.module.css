@@ -1,0 +1,90 @@
+.phoneBook {
+  display: flex;
+  top: 0;
+  font-weight: 800;
+  font-size: x-large;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  color: wheat;
+  gap: 8px;
+  padding: 10px;
+  background-image: linear-gradient(to left, #04ceaf, #008080);
+  border-bottom: 2px solid #474f52;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+.homeIcon {
+  margin-right: 8px;
+  font-size: 35px;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+.title {
+  color: black;
+  font-size: -webkit-xxx-large;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: left;
+}
+.fieldWrapper {
+  position: relative;
+}
+.contactForm {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid black;
+  margin-top: 60px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 4px;
+  border: 1px solid #474f52;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.contactFormlabel {
+  display: block;
+  margin-bottom: 4px;
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  font-size: x-large;
+}
+.contactFormInput {
+  display: block;
+  height: 30px;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: wheat;
+}
+
+.contactFormBtn {
+  margin-top: 20px;
+  color: black;
+  background-color: #1bdfdfce;
+  padding: 10px;
+  cursor: pointer;
+  display: block;
+  height: 50px;
+  width: 150px;
+  margin: 0 auto;
+  border: 2px solid #474f52;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+.contactFormBtn:hover {
+  background-color: rgba(44, 193, 216, 0.872);
+  border-color: #1bdfdfce;
+}
+.error {
+  color: rgb(255, 0, 0, 0.872);
+  font-size: 16px;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  font-weight: bold;
+}
