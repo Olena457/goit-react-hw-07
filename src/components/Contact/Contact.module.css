@@ -17,8 +17,8 @@
 .deleteBtn {
   width: 100px;
   height: 50px;
-  background-color: #ff0000;
-  color: black;
+  background-color: #f24e5e;
+  color: #333333;
   margin: 10px;
   padding: 5px 10px;
   cursor: pointer;

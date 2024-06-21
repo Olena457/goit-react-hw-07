@@ -4,7 +4,7 @@ import { BiSolidPhone } from 'react-icons/bi';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contactsOps';
 
-export default function Contact({ contact: { name, number, id } }) {
+export default function Contact({ name, number, id }) {
   const dispatch = useDispatch();
 
   const handleDeleteContact = () => {
@@ -25,7 +25,7 @@ export default function Contact({ contact: { name, number, id } }) {
       </div>
       <button
         className={css.deleteBtn}
-        type="buttom"
+        type="button"
         onClick={() => handleDeleteContact(id)}
       >
         Delete

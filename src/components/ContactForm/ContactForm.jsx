@@ -27,9 +27,6 @@ function ContactForm() {
   const telFieldId = useId();
   const dispatch = useDispatch();
 
-  // const handleSubmit = (values, actions) => {
-  //   dispatch(addContact(values));
-  //   actions.resetForm();
   const handleSubmit = ev => {
     ev.preventDefault();
     const form = ev.target;
@@ -73,11 +70,7 @@ function ContactForm() {
               name="number"
               id={telFieldId}
             />
-            <ErrorMessage
-              className={css.error}
-              name="number"
-              component="span"
-            />
+            <ErrorMessage className={css.error} name="number" component="div" />
           </div>
 
           <button className={css.contactFormBtn} type="submit">
