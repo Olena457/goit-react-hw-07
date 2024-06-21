@@ -1,9 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FaRegAddressBook } from 'react-icons/fa6';
 import css from './ContactForm.module.css';
-import { useId } from 'react';
 import * as Yup from 'yup';
-
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactsOps';
 
@@ -17,37 +15,27 @@ const validationSchema = Yup.object().shape({
     .min(3, 'Too Short!')
     .max(50, 'Too Long!'),
 });
-const initialValues = {
-  name: '',
-  number: '',
-};
 
 function ContactForm() {
-  const nameFieldId = useId();
-  const telFieldId = useId();
   const dispatch = useDispatch();
-
-  const handleSubmit = ev => {
-    ev.preventDefault();
-    const form = ev.target;
-    dispatch(addContact(ev.target.elements.text.value));
-    form.reset();
-  };
-
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{ name: '', number: '' }}
       validationSchema={validationSchema}
-      onSubmit={handleSubmit}
+      onSubmit={(values, actions) => {
+        alert(JSON.stringify(values, null, 2));
+        dispatch(addContact(values));
+        actions.setSubmitting(false);
+        actions.resetForm();
+      }}
     >
       <>
-        <div className={css.phoneBook}>
-          <FaRegAddressBook className={css.homeIcon} />
-          Phonebook
-        </div>
-
         <Form className={css.contactForm}>
-          <label className={css.contactFormlabel} htmlFor={nameFieldId}>
+          <div className={css.phoneBook}>
+            <FaRegAddressBook className={css.homeIcon} />
+            Phonebook
+          </div>
+          <label className={css.contactFormlabel} htmlFor="name">
             Name
           </label>
           <div className={css.fieldWrapper}>
@@ -55,12 +43,12 @@ function ContactForm() {
               className={css.contactFormInput}
               type="text"
               name="name"
-              id={nameFieldId}
+              id="name"
             />
             <ErrorMessage className={css.error} name="name" component="span" />
           </div>
 
-          <label className={css.contactFormlabel} htmlFor={telFieldId}>
+          <label className={css.contactFormlabel} htmlFor="number">
             Number
           </label>
           <div className={css.fieldWrapper}>
@@ -68,7 +56,7 @@ function ContactForm() {
               className={css.contactFormInput}
               type="text"
               name="number"
-              id={telFieldId}
+              id="number"
             />
             <ErrorMessage className={css.error} name="number" component="div" />
           </div>
@@ -81,4 +69,5 @@ function ContactForm() {
     </Formik>
   );
 }
+
 export default ContactForm;
